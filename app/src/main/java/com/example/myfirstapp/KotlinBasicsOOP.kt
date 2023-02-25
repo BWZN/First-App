@@ -12,7 +12,7 @@ fun main() {
     john.stateHobby()
     //var johnPeterson = Person(lastName = "Peterson")
 
-    //var samsung = MobilePhone("Android", "Samsung", "Galaxy S20 Ultra")
+    var samsung = MobilePhone("Android", "Samsung", "Galaxy S20 Ultra")
 
     myFunction(5)
     b = 4
@@ -35,7 +35,7 @@ class Person(firstName: String = "John", lastName: String = "Doe"){
             : this(firstName, lastName){
                 this.age = age
                 println("Initialized a new Person object with " +
-                "firstName = $firstName and lastName = $lastName and age    $age")
+                "firstName = $firstName and lastName = $lastName and age $age")
             }
     // Member functions - Methods
     fun stateHobby(){
@@ -45,9 +45,21 @@ class Person(firstName: String = "John", lastName: String = "Doe"){
 
 // Exercise
 class MobilePhone(osName: String, brand: String, model: String ){
+    var battery : Int = 0
+    constructor(osName: String, brand: String, model: String, battery: Int)
+                : this(osName, brand, model) {
+                    this.battery = battery
+                    println("Here the osName is $osName, brand is $brand, model is $model, battery is $battery")
+                }
     init {
         println("$brand $model. " +
                 "Here the osName is $osName, brand is $brand, model is $model")
+    }
+    fun chargeBattery() {
+        println("Battery had $battery%")
+        var newbattery = 30;
+        var curbattery = battery + newbattery;
+        println("Battery was charged by $newbattery% and now has $curbattery%")
     }
 }
 
